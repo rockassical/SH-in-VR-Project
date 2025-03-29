@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4690383654140924602
+--- !u!114 &-7222009250755700180
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,12 +20,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fabric_02
+  m_Name: Paint_03
   m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
-  m_Parent: {fileID: 2100000, guid: 7656b453d87b94b2ea2bdc171ba95efa, type: 2}
+  m_Parent: {fileID: 2100000, guid: b2981dfdc726a3743bcb42f402b1ac88, type: 2}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _NORMALMAP
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -38,18 +37,15 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 8fc3a1efcab1f4f06a9ee07e5b33f7a6, type: 3}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 057c302746fa6472aa64c4cfe533217f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 053b731ecfa9e49d78e616aedf4402c7, type: 3}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 057c302746fa6472aa64c4cfe533217f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _Metallic: 0
-    m_Colors:
-    - _BaseColor: {r: 0.089511395, g: 0.1273585, b: 0.0768957, a: 1}
-    - _Color: {r: 0.089511395, g: 0.1273585, b: 0.0768957, a: 1}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
