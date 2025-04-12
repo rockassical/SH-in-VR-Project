@@ -4310,7 +4310,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3130155754031346115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4344,7 +4344,7 @@ MonoBehaviour:
   - {fileID: 5369968236131624268}
   - {fileID: 9038790657012124410}
   - {fileID: 1092555589018163905}
-  button: {fileID: 5459654342900427758}
+  objectWhole: {fileID: 0}
 --- !u!114 &5299274269719998743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4360,9 +4360,6 @@ MonoBehaviour:
   incident: {fileID: 3123586933375536453}
   offender: {fileID: 3134242929136106725}
   victim: {fileID: 6717456126609558449}
-  incidentSelect: {fileID: 5459654342900427758}
-  offenderSelect: {fileID: 7716516760182640997}
-  report: {fileID: 5539691535554753075}
 --- !u!1 &8028471593905568797
 GameObject:
   m_ObjectHideFlags: 0
