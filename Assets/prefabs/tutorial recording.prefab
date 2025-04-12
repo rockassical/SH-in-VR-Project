@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bg: {fileID: 435554067554298391}
+  loco: {fileID: 0}
 --- !u!1 &1195482463408874488
 GameObject:
   m_ObjectHideFlags: 0

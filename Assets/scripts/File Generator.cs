@@ -14,7 +14,7 @@ public class FileGenerator : MonoBehaviour
     {
         instance = this;
         createText();
-        saveFile();
+        //saveFile();
     }
 
     void createText(){
@@ -53,7 +53,7 @@ public class FileGenerator : MonoBehaviour
 
     public void saveFile(){
         String path = Application.dataPath + "/Log.txt";
-        StreamWriter streamWriter = new StreamWriter(path);
+        StreamWriter streamWriter = new(path);
         streamWriter.Write("DATA\n\nCue Condition, Direct Message\n"+CDActual+"/"+CDTotal+"\nAction Condition, Direct Message\n"+ADActual+"/"+ADTotal+"\nCue Condition, Report\n"+CRActual+"/"+CRTotal+"\nAction Condition, Report\n"+ARActual+"/"+ARTotal+"\n");
     }   
     

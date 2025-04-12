@@ -2318,8 +2318,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4310,7 +4310,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3130155754031346115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5224,7 +5224,7 @@ MonoBehaviour:
     m_Options:
     - m_Text: Sexual Harrasment
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: Theft
       m_Image: {fileID: 0}
     - m_Text: Option C
       m_Image: {fileID: 0}
