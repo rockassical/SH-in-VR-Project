@@ -1608,9 +1608,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ReportMenue",
+                    "name": "ReportMenu",
                     "type": "Button",
                     "id": "d359ff86-d20b-41e4-9670-d61ba98c3291",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RecordMenu",
+                    "type": "Button",
+                    "id": "15d312ba-d2dd-4d32-b282-ed89db544615",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Press",
@@ -1801,7 +1810,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ReportMenue",
+                    "action": "ReportMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b93811f9-e6e7-4069-a1a5-94732ad8cd4c",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RecordMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
