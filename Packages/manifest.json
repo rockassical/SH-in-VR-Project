@@ -1,12 +1,14 @@
 {
   "dependencies": {
     "com.soupday.cc3_unity_tools": "file:C:/Users/lisbe/Downloads/Character_Creator_and_iClone_Auto_Setup_1.4.6_for_Unity_HDRP12/Character_Creator_and_iClone_Auto_Setup_1.4.6_for_Unity_HDRP12",
+    "com.unity.cinemachine": "2.10.3",
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.feature.vr": "1.0.0",
     "com.unity.inputsystem": "1.11.2",
     "com.unity.learn.iet-framework": "3.1.3",
     "com.unity.postprocessing": "3.4.0",
+    "com.unity.recorder": "4.0.3",
     "com.unity.render-pipelines.universal": "14.0.11",
     "com.unity.textmeshpro": "3.0.7",
     "com.unity.timeline": "1.7.6",
