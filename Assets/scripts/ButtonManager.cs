@@ -8,7 +8,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject bg,loco;
 
     public void yesClick(){
-        Destroy(bg);
+        bg.SetActive(false);
         loco.SetActive(true);
     }
 
