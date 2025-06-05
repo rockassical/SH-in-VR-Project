@@ -6660,6 +6660,22 @@ PrefabInstance:
       propertyPath: m_Colors.m_PressedColor.r
       value: 0.6415094
       objectReference: {fileID: 0}
+    - target: {fileID: 4405984440564627912, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0.89411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405984440564627912, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.11051208
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405984440564627912, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.11051208
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405984440564627912, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.11051208
+      objectReference: {fileID: 0}
     - target: {fileID: 4447023897794898705, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.65845674
@@ -6799,6 +6815,22 @@ PrefabInstance:
     - target: {fileID: 7679529176382033805, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956603157591666629, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
+      propertyPath: m_Color.a
+      value: 0.89411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956603157591666629, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
+      propertyPath: m_Color.b
+      value: 0.15294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956603157591666629, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
+      propertyPath: m_Color.g
+      value: 0.15294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956603157591666629, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
+      propertyPath: m_Color.r
+      value: 0.16470589
       objectReference: {fileID: 0}
     - target: {fileID: 8971558918450633041, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_fontStyle
