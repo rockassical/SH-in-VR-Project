@@ -10,7 +10,7 @@ public class HudCycle : MonoBehaviour
     private int index = 0;
     [SerializeField]private GameObject objectWhole;
     
-    public void onClick(){
+    public void NextSlide(){
         slides[index].SetActive(false);
         index++;
         if(index > slides.Count-1 && objectWhole.activeSelf){
