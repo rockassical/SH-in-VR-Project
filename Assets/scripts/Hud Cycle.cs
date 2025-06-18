@@ -15,7 +15,7 @@ public class HudCycle : MonoBehaviour
         index++;
         if(index > slides.Count-1 && objectWhole.activeSelf){
             index = 0;
-            Destroy(objectWhole);
+            objectWhole.SetActive(false);
             return;
         }
         slides[index].SetActive(true);
