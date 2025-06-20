@@ -24261,7 +24261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 179823650001381814, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 179823650001381814, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_LocalScale.x
@@ -24274,6 +24274,10 @@ PrefabInstance:
     - target: {fileID: 179823650001381814, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.027901882
+      objectReference: {fileID: 0}
+    - target: {fileID: 179823650001381814, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.59
       objectReference: {fileID: 0}
     - target: {fileID: 308603692972375562, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_Type
@@ -24339,11 +24343,11 @@ PrefabInstance:
       propertyPath: m_text
       value: "<color=#30CF26><u>PLEASE BE AWARE: </u></color>\nThis simulation includes
         instances of <u>inappropriate behavior</u> such as sexual harassment and/or
-        discriminatory remarks. This simulation will place users in uncomfortable
-        situations through the existence of such inappropriate behaviors. If you
-        find this distressing or problematic, please <u>do not</u> participate. \nYour
-        choices and behavior (including voice) will also be recorded. \n\n<color=#30CF26>Do
-        you wish to proceed?</color>"
+        discriminatory remarks.\n\n This simulation will place users in uncomfortable
+        situations through the existence of such inappropriate behaviors. \n\nIf
+        you find this distressing or problematic, please <u>do not</u> participate.
+        \n\nYour choices and behavior (including voice) in the VR simulation will
+        also be recorded. \n\n<color=#30CF26>Do you wish to proceed?</color>"
       objectReference: {fileID: 0}
     - target: {fileID: 1777531060233122219, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_fontSize
@@ -24427,7 +24431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2968351505865679617, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 157.7
+      value: 199.3
       objectReference: {fileID: 0}
     - target: {fileID: 3280578313802446439, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_Layer
@@ -24455,7 +24459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4368401572722369590, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.70001
+      value: -179.90002
       objectReference: {fileID: 0}
     - target: {fileID: 4405984440564627912, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_Transition
@@ -24523,7 +24527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4447023897794898705, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.7
+      value: -179.9
       objectReference: {fileID: 0}
     - target: {fileID: 5256665051576027571, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_Layer
@@ -29824,7 +29828,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0}
-  m_SizeDelta: {x: 500, y: 400}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873469122
 MonoBehaviour:
