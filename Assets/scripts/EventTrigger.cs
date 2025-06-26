@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition.Attributes;
 
-public class SceneTrigger : MonoBehaviour
+public class EventTrigger : MonoBehaviour
 {
     public GameObject locomotion;
     public MeshRenderer rend;
