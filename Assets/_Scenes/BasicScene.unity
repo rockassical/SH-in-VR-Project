@@ -10147,6 +10147,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f065fd3335a324a805995d2b0071d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locomotion: {fileID: 391492127}
+  player: {fileID: 648072029}
+  npc: {fileID: 0}
+  rotation: {fileID: 648072031}
+  rend: {fileID: 22741047}
+  playerAnimator: {fileID: 0}
+  npcAnimator: {fileID: 0}
+  cutsceneAudio: {fileID: 0}
+  playerTargetPosition: {fileID: 0}
+  npcTargetPosition: {fileID: 0}
 --- !u!65 &544439959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11912,6 +11922,11 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!1 &648072031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1470279098769358944, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 648072028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &648072032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
