@@ -14,11 +14,11 @@ public class FileGenerator : MonoBehaviour
     {
         instance = this;
         createText();
-        //saveFile();
+        saveFile();
     }
 
     void createText(){
-        String path = Application.dataPath + "/Log.txt";
+        String path = Application.persistentDataPath + "/Log.txt";
         if(!File.Exists(path)){
             File.WriteAllText(path, "DATA\n\nCue Condition, Direct Message\n0/0\nAction Condition, Direct Message\n0/0\nCue Condition, Report\n0/0\nAction Condition, Report\n0/0\n");
         }
@@ -52,7 +52,7 @@ public class FileGenerator : MonoBehaviour
     }
 
     public void saveFile(){
-        String path = Application.dataPath + "/Log.txt";
+        String path = Application.persistentDataPath + "/Log.txt";
         StreamWriter streamWriter = new(path);
         streamWriter.Write("DATA\n\nCue Condition, Direct Message\n"+CDActual+"/"+CDTotal+"\nAction Condition, Direct Message\n"+ADActual+"/"+ADTotal+"\nCue Condition, Report\n"+CRActual+"/"+CRTotal+"\nAction Condition, Report\n"+ARActual+"/"+ARTotal+"\n");
     }   
