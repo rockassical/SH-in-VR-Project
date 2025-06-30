@@ -9,12 +9,21 @@ public class BeginJane : MonoBehaviour
     public AudioSource audioSource;
     public Transform targetPoint;
     public float moveSpeed;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     void Start()
     {
         moveSpeed = 5;
-      
+    }
+    private void Update()
+    {
+        Vector3 velocity = agent.velocity;
+
+        if (velocity.sqrMagnitude > 0.01f) // make sure it's actually moving
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(-velocity);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+        }
     }
     void PlayAnimationAndAudio()
     {
@@ -28,25 +37,24 @@ public class BeginJane : MonoBehaviour
         gameObject.SetActive(true);
         PlayAnimationAndAudio();
         StartCoroutine(toWalk());
-        MoveToTarget();
+        //gameObject.SetActive(false);
     }
-    void MoveToTarget()
+ 
+     IEnumerator toWalk() 
     {
-        if (targetPoint == null) return;
         animator.SetTrigger("Walk");
+        yield return new WaitForSeconds(12.83f);
 
         // Move toward the target
         agent.SetDestination(targetPoint.position);
 
-        // Stop moving if close enough
-        if (Vector3.Distance(transform.position, targetPoint.position) <= 0.1)
-        {
-            gameObject.SetActive(false);
-        }
-    }
-     IEnumerator toWalk() 
-    {
-        yield return new WaitForSeconds(10f);
- 
+        //Stop moving if close enough
+        // Wait until agent reaches destination
+        while (agent.pathPending)
+            yield return null;
+        while (agent.remainingDistance > agent.stoppingDistance + 0.05f)
+            yield return null;
+
+        gameObject.SetActive(false);
     }
 }
