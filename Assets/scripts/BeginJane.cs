@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.AI;
 public class BeginJane : MonoBehaviour
 {
     [Header("References")]
@@ -8,7 +9,8 @@ public class BeginJane : MonoBehaviour
     public AudioSource audioSource;
     public Transform targetPoint;
     public float moveSpeed;
-    
+    private NavMeshAgent agent;
+
     void Start()
     {
         moveSpeed = 5;
@@ -34,11 +36,7 @@ public class BeginJane : MonoBehaviour
         animator.SetTrigger("Walk");
 
         // Move toward the target
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            targetPoint.position,
-            moveSpeed * Time.deltaTime
-        );
+        agent.SetDestination(targetPoint.position);
 
         // Stop moving if close enough
         if (Vector3.Distance(transform.position, targetPoint.position) <= 0.1)
