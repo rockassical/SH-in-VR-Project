@@ -6,11 +6,14 @@ using UnityEngine.UIElements;
 
 public class EventTrigger : MonoBehaviour
 {
-    public GameObject locomotion, player, npc, rotation;
+    public GameObject locomotion, player, rotation;
     public MeshRenderer rend;
-    public Animator playerAnimator, npcAnimator;
+    public Animator npcOneAnimator, npcTwoAnimator;
     public AudioSource cutsceneAudio;
-    public Transform playerTargetPosition, npcTargetPosition;
+    public GameObject jess;
+    public GameObject william;
+
+   // public Transform playerTargetPosition, npcTargetPosition;
     private bool fade;
     void OnTriggerEnter(Collider collider)
     {
@@ -26,25 +29,21 @@ public class EventTrigger : MonoBehaviour
         // Fade to black
         yield return StartCoroutine(FadeScreen(0f, 1f, 1f));
 
-        // Move characters
-        player.transform.position = playerTargetPosition.position;
-        npc.transform.position = npcTargetPosition.position;
+        //// Move characters
+        //player.transform.position = playerTargetPosition.position;
+        //npc.transform.position = npcTargetPosition.position;
 
-        // Optional: set rotation
-        player.transform.rotation = playerTargetPosition.rotation;
-        npc.transform.rotation = npcTargetPosition.rotation;
+        //// Optional: set rotation
+        //player.transform.rotation = playerTargetPosition.rotation;
+        //npc.transform.rotation = npcTargetPosition.rotation;
 
         // Play audio
         if (cutsceneAudio != null)
             cutsceneAudio.Play();
 
         // Play animations
-        if (playerAnimator != null)
-            playerAnimator.SetTrigger("CutsceneStart");
-
-        if (npcAnimator != null)
-            npcAnimator.SetTrigger("CutsceneStart");
-
+        william.SetActive(true);
+        jess.SetActive(true);
         // Fade back in
         yield return StartCoroutine(FadeScreen(1f, 0f, 1f));
 

@@ -8987,6 +8987,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JessicaREAL
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 485b0c6772056a644ae21ff1be253329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 924313095078792381, guid: 485b0c6772056a644ae21ff1be253329, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -11.47931
@@ -10282,14 +10286,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locomotion: {fileID: 391492127}
   player: {fileID: 648072029}
-  npc: {fileID: 0}
   rotation: {fileID: 648072031}
   rend: {fileID: 22741047}
-  playerAnimator: {fileID: 0}
-  npcAnimator: {fileID: 0}
-  cutsceneAudio: {fileID: 0}
-  playerTargetPosition: {fileID: 0}
-  npcTargetPosition: {fileID: 0}
+  npcOneAnimator: {fileID: 656764631}
+  npcTwoAnimator: {fileID: 519850866}
+  cutsceneAudio: {fileID: 656764632}
+  jess: {fileID: 519850865}
+  william: {fileID: 656764630}
 --- !u!65 &544439959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12721,6 +12724,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d17a9eb833a7d044e8ec64fca3e6771c, type: 3}
       propertyPath: m_Name
       value: WILLIAM
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d17a9eb833a7d044e8ec64fca3e6771c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 924313095078792381, guid: d17a9eb833a7d044e8ec64fca3e6771c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
