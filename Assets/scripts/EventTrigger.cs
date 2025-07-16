@@ -10,8 +10,8 @@ public class EventTrigger : MonoBehaviour
     public MeshRenderer rend;
     public Animator npcOneAnimator, npcTwoAnimator;
     public AudioSource cutsceneAudio;
-    public GameObject jess;
-    public GameObject william;
+    public Animator jess;
+    public Animator william;
 
    // public Transform playerTargetPosition, npcTargetPosition;
     private bool fade;
@@ -42,8 +42,8 @@ public class EventTrigger : MonoBehaviour
             cutsceneAudio.Play();
 
         // Play animations
-        william.SetActive(true);
-        jess.SetActive(true);
+        william.SetTrigger("scene");
+        jess.SetTrigger("scene");
         // Fade back in
         yield return StartCoroutine(FadeScreen(1f, 0f, 1f));
 

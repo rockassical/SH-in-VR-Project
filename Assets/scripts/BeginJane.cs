@@ -14,6 +14,8 @@ public class BeginJane : MonoBehaviour
     public Transform targetThree;
     public Transform targetFour;
     public Transform targetFive;
+    public GameObject Jess;
+    public GameObject Will;
     void Start()
     {
         moveSpeed = 5;
@@ -30,14 +32,13 @@ public class BeginJane : MonoBehaviour
     }
     void PlayAnimationAndAudio()
     {
-        if (audioSource != null && !audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
+        audioSource.Play();
     }
     public void ButtonActive()
     {
         gameObject.SetActive(true);
+        Jess.SetActive(true);
+        Will.SetActive(true);
         PlayAnimationAndAudio();
         StartCoroutine(toWalk());
         //gameObject.SetActive(false);
