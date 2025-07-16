@@ -10,7 +10,10 @@ public class BeginJane : MonoBehaviour
     public Transform targetPoint;
     public float moveSpeed;
     public NavMeshAgent agent;
-
+    public Transform targetTwo;
+    public Transform targetThree;
+    public Transform targetFour;
+    public Transform targetFive;
     void Start()
     {
         moveSpeed = 5;
@@ -21,7 +24,7 @@ public class BeginJane : MonoBehaviour
 
         if (velocity.sqrMagnitude > 0.01f) // make sure it's actually moving
         {
-            Quaternion lookRotation = Quaternion.LookRotation(-velocity);
+            Quaternion lookRotation = Quaternion.LookRotation(velocity);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
         }
     }
@@ -43,7 +46,7 @@ public class BeginJane : MonoBehaviour
      IEnumerator toWalk() 
     {
         animator.SetTrigger("Walk");
-        yield return new WaitForSeconds(12.83f);
+        yield return new WaitForSeconds(11f);
 
         // Move toward the target
         agent.SetDestination(targetPoint.position);
@@ -55,6 +58,18 @@ public class BeginJane : MonoBehaviour
         while (agent.remainingDistance > agent.stoppingDistance + 0.05f)
             yield return null;
 
-        gameObject.SetActive(false);
+        animator.SetTrigger("Idle");
+        yield return new WaitForSeconds(26f);
+        agent.SetDestination(targetTwo.position);
+        yield return new WaitForSeconds(7f);
+        agent.SetDestination(targetThree.position);
+        yield return new WaitForSeconds(6f);
+        agent.SetDestination(targetFour.position);
+        yield return new WaitForSeconds(11f);
+
+        animator.SetTrigger("End");
+        agent.SetDestination(targetFive.position);
+
+
     }
 }
