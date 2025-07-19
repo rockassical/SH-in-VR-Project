@@ -6,7 +6,21 @@ using UnityEngine.UIElements;
 
 public class EventTrigger : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public GameObject locomotion, player, rotation;
+=======
+<<<<<<< Updated upstream
+    public GameObject locomotion, player, npc, rotation;
+=======
+    public GameObject player;
+    public GameObject npc;
+
+    Transform playerTargetPosition;
+    Transform npcTargetPosition;
+
+    public GameObject locomotion;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     public MeshRenderer rend;
     public Animator npcOneAnimator, npcTwoAnimator;
     public AudioSource cutsceneAudio;
