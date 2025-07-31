@@ -15,7 +15,7 @@ namespace Evereal.VideoCapture
     {
       get
       {
-        return Application.streamingAssetsPath + "/FFmpeg/";
+        return Application.streamingAssetsPath + "/FFmpeg/bin/";
       }
     }
 
@@ -24,7 +24,7 @@ namespace Evereal.VideoCapture
     {
       get
       {
-        return folder + "x86/ffmpeg.exe";
+        return folder + "ffmpeg.exe";
       }
     }
 
@@ -33,7 +33,7 @@ namespace Evereal.VideoCapture
     {
       get
       {
-        return folder + "x86_64/ffmpeg.exe";
+        return folder + "ffmpeg.exe";
       }
     }
 
