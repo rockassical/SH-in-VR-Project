@@ -14,10 +14,14 @@ public class HudCycle : MonoBehaviour
         slides[index].SetActive(false);
         index++;
         if(index > slides.Count-1 && objectWhole.activeSelf){
-            index = 0;
+            ResetSlideIndex();
             objectWhole.SetActive(false);
             return;
         }
+        slides[index].SetActive(true);
+    }
+    public void ResetSlideIndex() {
+        index = 0;
         slides[index].SetActive(true);
     }
 }
