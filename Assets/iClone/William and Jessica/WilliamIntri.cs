@@ -35,10 +35,11 @@ public class WilliamIntri : MonoBehaviour
 
     IEnumerator toWalk()
     {
+        yield return new WaitForSeconds(16f);
         animator.SetTrigger("Intro");
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(11f);
         animator.SetTrigger("Walk");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         // Move toward the target
         agent.SetDestination(targetPoint.position);
 

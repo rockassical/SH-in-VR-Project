@@ -33,12 +33,16 @@ public class JessicaIntro : MonoBehaviour
 
     IEnumerator toWalk()
     {
+        agent.enabled = false;
         animator.SetTrigger("Intro");
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(20f);
+
         animator.SetTrigger("Walk");
+        yield return new WaitForSeconds(5f);
 
         // Move toward the target
-        agent.SetDestination(targetPoint.position);
+        agent.updateRotation = false;
+        agent.enabled = true;
 
         //Stop moving if close enough
         // Wait until agent reaches destination
