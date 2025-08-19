@@ -15184,6 +15184,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3074471628601745017, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 4343660526480754339, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RequirePokeFilter
       value: 1
@@ -39148,10 +39152,6 @@ PrefabInstance:
     - target: {fileID: 5715426008742878004, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_Color.r
       value: 0.1882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 5731768755347623436, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7679529176382033805, guid: 0f7c7046cf21ff74fbec67b29bf5a527, type: 3}
       propertyPath: m_Pivot.x
