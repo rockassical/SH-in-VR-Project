@@ -7,7 +7,8 @@ using UnityEngine.UIElements;
 public class EventTrigger : MonoBehaviour
 {
 //<<<<<<< Updated upstream
-    public GameObject rotation;
+    //Reece: Commented out to prevent redundancy in activating rotation. 
+    //public GameObject rotation;
 //=======
     public GameObject player;
     public GameObject npc;
@@ -15,7 +16,8 @@ public class EventTrigger : MonoBehaviour
     Transform playerTargetPosition;
     Transform npcTargetPosition;
 
-    public GameObject locomotion;
+    public GameObject locomotion; //Reece: In the inspector I assigned the Move child instead to allow for rotation while in chair.
+    public GameObject teleportaton; //Use to stop teleporting
 //>>>>>>> Stashed changes
     public MeshRenderer rend;
     public Animator npcOneAnimator, npcTwoAnimator;
@@ -27,8 +29,9 @@ public class EventTrigger : MonoBehaviour
     private bool fade;
     void OnTriggerEnter(Collider collider)
     {
-        locomotion.SetActive(false);
-        rotation.SetActive(true);
+        locomotion.SetActive(false);//turn off movement
+        teleportaton.SetActive(false);//turn off teleportation
+        //rotation.SetActive(true);
         StartCoroutine(StartCutscene());
     }
     //cutscene starts

@@ -11299,10 +11299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f065fd3335a324a805995d2b0071d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {fileID: 648072031}
   player: {fileID: 648072029}
   npc: {fileID: 0}
-  locomotion: {fileID: 391492127}
+  locomotion: {fileID: 930655620}
+  teleportaton: {fileID: 1580621615}
   rend: {fileID: 22741047}
   npcOneAnimator: {fileID: 656764631}
   npcTwoAnimator: {fileID: 519850866}
@@ -15275,11 +15275,6 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!1 &648072031 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1470279098769358944, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-  m_PrefabInstance: {fileID: 648072028}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &648072032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -23234,6 +23229,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917617547}
   m_CullTransparentMesh: 1
+--- !u!1 &930655620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 58445280694286476, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 648072028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &931071462
 GameObject:
   m_ObjectHideFlags: 0
@@ -40551,6 +40551,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579113971}
   m_CullTransparentMesh: 1
+--- !u!1 &1580621615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2190828208922718286, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 648072028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1591334680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5668689709192895336, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
