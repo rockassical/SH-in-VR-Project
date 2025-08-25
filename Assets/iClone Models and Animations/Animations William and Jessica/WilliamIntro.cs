@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.AI;
-public class WilliamIntri : MonoBehaviour
+public class WilliamIntro : MonoBehaviour
 {
     [Header("References")]
     public Animator animator;
