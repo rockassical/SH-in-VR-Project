@@ -1,6 +1,23 @@
 {
+  "scopedRegistries": [
+    {
+      "name": "VideoKit",
+      "url": "https://registry.npmjs.com",
+      "scopes": [
+        "ai.videokit"
+      ]
+    },
+    {
+      "name": "Function",
+      "url": "https://registry.npmjs.com",
+      "scopes": [
+        "ai.fxn"
+      ]
+    }
+  ],
   "dependencies": {
-    "com.soupday.cc3_unity_tools": "file:C:/Users/lisbe/Downloads/Character_Creator_and_iClone_Auto_Setup_1.4.6_for_Unity_HDRP12/Character_Creator_and_iClone_Auto_Setup_1.4.6_for_Unity_HDRP12",
+    "ai.videokit.videokit": "0.0.22",
+    "com.soupday.cc3_unity_tools": "https://github.com/soupday/CCiC-Unity-Tools.git",
     "com.unity.ai.navigation": "1.1.6",
     "com.unity.cinemachine": "2.10.3",
     "com.unity.collab-proxy": "2.7.1",
