@@ -11,7 +11,6 @@ public class EventTrigger : MonoBehaviour
     //public GameObject rotation;
 //=======
     public GameObject player;
-    public GameObject npc;
 
     Transform playerTargetPosition;
     Transform npcTargetPosition;
@@ -23,8 +22,9 @@ public class EventTrigger : MonoBehaviour
     public AudioSource cutsceneAudio;
     public Animator jess;
     public Animator william;
-
-   // public Transform playerTargetPosition, npcTargetPosition;
+    //boolean for testing
+    public bool testMode = false;
+    // public Transform playerTargetPosition, npcTargetPosition;
     private bool fade;
     void OnTriggerEnter(Collider collider)
     {
@@ -33,20 +33,21 @@ public class EventTrigger : MonoBehaviour
         StartCoroutine(StartCutscene());
     }
     //cutscene starts
-    //new changes in progress to test 06/26/25
-
+    private void Start()
+    {
+        if (testMode)   
+        {
+            
+            if (cutsceneAudio != null)
+                cutsceneAudio.Play();
+            william.SetTrigger("scene");
+            jess.SetTrigger("scene"); 
+        }
+    }
     IEnumerator StartCutscene()
     {
         // Fade to black
         yield return StartCoroutine(FadeScreen(0f, 1f, 1f));
-
-        //// Move characters
-        //player.transform.position = playerTargetPosition.position;
-        //npc.transform.position = npcTargetPosition.position;
-
-        //// Optional: set rotation
-        //player.transform.rotation = playerTargetPosition.rotation;
-        //npc.transform.rotation = npcTargetPosition.rotation;
 
         // Play audio
         if (cutsceneAudio != null)
@@ -57,7 +58,6 @@ public class EventTrigger : MonoBehaviour
         jess.SetTrigger("scene");
         // Fade back in
         yield return StartCoroutine(FadeScreen(1f, 0f, 1f));
-
        
     }
 
