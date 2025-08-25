@@ -10233,7 +10233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 485b0c6772056a644ae21ff1be253329, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 924313095078792381, guid: 485b0c6772056a644ae21ff1be253329, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11573,7 +11573,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 648072029}
-  npc: {fileID: 0}
   locomotion: {fileID: 930655620}
   rend: {fileID: 22741047}
   npcOneAnimator: {fileID: 656764631}
@@ -16278,7 +16277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d17a9eb833a7d044e8ec64fca3e6771c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 924313095078792381, guid: d17a9eb833a7d044e8ec64fca3e6771c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
