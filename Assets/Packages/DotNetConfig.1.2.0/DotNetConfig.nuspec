@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DotNetConfig</id>
+    <version>1.2.0</version>
+    <authors>Daniel Cazzulino</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>icon.png</icon>
+    <readme>readme.md</readme>
+    <projectUrl>https://github.com/dotnetconfig/dotnet-config</projectUrl>
+    <description>APIs for handling dotnet-config compatible settings for any dotnet tool.
+
+Usage: 
+  var config = Config.Build();
+  var value = config.GetString("section", "subsection", "variable");
+
+  // Setting values
+  config
+    .SetString("section", "subsection", "variable", value)
+    .SetBoolean("section", "subsection", "enabled", true);</description>
+    <releaseNotes>https://github.com/dotnetconfig/dotnet-config/blob/main/changelog.md</releaseNotes>
+    <copyright>Copyright (C) Daniel Cazzulino and Contributors. All rights reserved.</copyright>
+    <tags>dotnet config</tags>
+    <repository type="git" url="https://github.com/dotnetconfig/dotnet-config" branch="v1.2.0" commit="5bf47f78893133c09e5fed0885d65774efc5452f" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Collections.Immutable" version="6.0.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

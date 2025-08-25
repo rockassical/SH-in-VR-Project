@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "ai.videokit.videokit": "0.0.22",
+    "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
     "com.soupday.cc3_unity_tools": "https://github.com/soupday/CCiC-Unity-Tools.git",
     "com.unity.ai.navigation": "1.1.6",
     "com.unity.cinemachine": "2.10.3",
