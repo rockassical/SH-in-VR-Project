@@ -16,7 +16,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void yesClick(){
         bg.SetActive(false);
-        switchLockLocomotion(loco.activeSelf);
+        //switchLockLocomotion(loco.activeSelf);
     }
 
     
