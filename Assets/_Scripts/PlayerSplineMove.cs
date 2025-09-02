@@ -16,13 +16,22 @@ public class PlayerSplineMove : MonoBehaviour
 
     [Header("Spline Move Control")]
     public splineMove spline;
+ 
     //public float moveSpeed;
 
     public Vector2 thumbStickInputValue;
     private float minSpeed = 1f;
     //private float maxSpeed = 5f;
 
-    private bool isMoving = false;
+    public Transform target;
+    public float rotationSpeed = 5f;
+    private bool isRotationAligned = false;
+
+    public bool lockXAxis = false;
+    public bool lockYAxis = false;
+    public bool lockZAxis = true;
+
+    public GameObject player;
 
     private void OnEnable()
     {
@@ -49,7 +58,7 @@ public class PlayerSplineMove : MonoBehaviour
         Vector2 thumbstickValue = context.ReadValue<Vector2>(); // Read the full thumbstick value
         float yInput = thumbstickValue.y; // Extract the Y value
 
-        Debug.Log("yInput is:" + yInput);
+        //Debug.Log("yInput is:" + yInput);
 
         //spline.ChangeSpeed(moveSpeed);
     }
@@ -59,7 +68,9 @@ public class PlayerSplineMove : MonoBehaviour
         thumbStickInputValue = leftThumbstick.action.ReadValue<Vector2>();   //get controller thumbstick value
         float yInput = thumbStickInputValue.y; // Extract the Y value
 
-        Debug.Log("yInput is:" + yInput);
+        //Debug.Log("yInput is:" + yInput);
+
+        
 
         if(yInput > 0.1f)
         {
@@ -83,18 +94,71 @@ public class PlayerSplineMove : MonoBehaviour
 
     void Update()
     {
+
+        //RotationAdjustment();
+        AdjustSpeed2();
+
+        if (isRotationAligned == true)
+        {
+
         
 
-        AdjustSpeed2();
+
+        }
+
 
         
     }
 
+
+    public void RotationAdjustment()
+    {
+        // Exit early if no target is assigned to prevent errors.
+        if (target == null)
+        {
+            return;
+        }
+
+        
+        Vector3 directionToTarget = target.position - transform.position;
+
+        // Ensure the direction is not a zero vector.
+        if (directionToTarget == Vector3.zero)
+        {
+            return;
+        }
+
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+
+        // --- Step 3: Apply axis locks (optional) ---
+        // Get the current rotation in Euler angles.
+        Vector3 currentEulerAngles = transform.rotation.eulerAngles;
+        // Get the target rotation in Euler angles.
+        Vector3 targetEulerAngles = targetRotation.eulerAngles;
+
+        // If an axis is locked, we keep the object's current rotation for that axis.
+        float finalX = lockXAxis ? currentEulerAngles.x : targetEulerAngles.x;
+        float finalY = lockYAxis ? currentEulerAngles.y : targetEulerAngles.y;
+        float finalZ = lockZAxis ? currentEulerAngles.z : targetEulerAngles.z;
+
+        // Recreate the target rotation from the potentially modified Euler angles.
+        Quaternion finalRotation = Quaternion.Euler(finalX, finalY, finalZ);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, finalRotation, rotationSpeed * Time.deltaTime);
+
+        isRotationAligned = true;
+    }
 
     public void StartPlayerSplineMove()
     {
+        player.transform.rotation = target.transform.rotation;
         spline.speed = 0.5f;
         spline.StartMove();
     }
+
+
+    void LateUpdate()
+    {
+    }    
 
 }
