@@ -29,7 +29,7 @@ public class PlayerSplineMove : MonoBehaviour
        if (leftThumbstick != null)
         {
             leftThumbstick.action.Enable();
-            leftThumbstick.action.performed += AdjustSpeed;
+            //leftThumbstick.action.performed += AdjustSpeed;
             
         }
     }
@@ -38,7 +38,7 @@ public class PlayerSplineMove : MonoBehaviour
     {
         if (leftThumbstick != null)
         {
-            leftThumbstick.action.performed -= AdjustSpeed;
+            //leftThumbstick.action.performed -= AdjustSpeed;
             leftThumbstick.action.Disable();
         }
     }
