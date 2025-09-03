@@ -11,14 +11,11 @@ public class EventTrigger : MonoBehaviour
 //<<<<<<< Updated upstream
     //Reece: Commented out to prevent redundancy in activating rotation. 
     public GameObject rotation;
-    public GameObject move;
-    public GameObject grabMove;
-    public GameObject teleport;
-    public GameObject climb;
+    public PlayerSplineMove playerSplineControl;
+
 //=======
     public GameObject player;
-    public GameObject npc;
-
+    
     Transform playerTargetPosition;
     Transform npcTargetPosition;
     public Transform target2rotate;
@@ -41,21 +38,24 @@ public class EventTrigger : MonoBehaviour
     private bool fade;
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("chair seated");
-
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+        playerSplineControl.minSpeed = 0;
         splineMove playerSpline = col.gameObject.GetComponentInParent<splineMove>();
-        Debug.Log("player spline found");
 
-        if (playerSpline != null) playerSpline.enabled = false;
-        GameObject player = col.gameObject;
+        if (playerSpline != null)
+
+        playerSpline.Pause();
+        playerSpline.enabled = false;
+        Debug.Log("player spline disabled");
+
+        //player.transform.rotation = target2rotate.transform.rotation;
+        player.transform.position = target2rotate.transform.position;
         player.transform.rotation = target2rotate.transform.rotation;
-        
-        locomotion.SetActive(false);//turn off movement
-        rotation.SetActive(true);
-        move.SetActive(false);
-        grabMove.SetActive(false);
-        teleport.SetActive(false);
-        climb.SetActive(false);
+
+    
+
+        //locomotion.SetActive(false);//turn off movement
+      
         //StartCoroutine(StartCutscene());
 
         StartCoroutine(WilliamIdle2Walk(waitTime));

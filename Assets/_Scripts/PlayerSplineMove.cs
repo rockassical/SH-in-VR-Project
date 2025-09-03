@@ -20,7 +20,7 @@ public class PlayerSplineMove : MonoBehaviour
     //public float moveSpeed;
 
     public Vector2 thumbStickInputValue;
-    private float minSpeed = 1f;
+    public float minSpeed = 0.5f;
     //private float maxSpeed = 5f;
 
     public Transform target;
@@ -32,6 +32,7 @@ public class PlayerSplineMove : MonoBehaviour
     public bool lockZAxis = true;
 
     public GameObject player;
+    public SmoothYAxisRotation rotationScript;
 
     private void OnEnable()
     {
@@ -151,7 +152,9 @@ public class PlayerSplineMove : MonoBehaviour
 
     public void StartPlayerSplineMove()
     {
-        player.transform.rotation = target.transform.rotation;
+        //player.transform.rotation = target.transform.rotation;
+
+        if(rotationScript.isRotationComplete) 
         spline.speed = 0.5f;
         spline.StartMove();
     }

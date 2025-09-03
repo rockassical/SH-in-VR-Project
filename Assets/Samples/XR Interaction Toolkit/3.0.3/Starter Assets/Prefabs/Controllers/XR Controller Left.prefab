@@ -31,6 +31,8 @@ Transform:
   m_Children:
   - {fileID: 1407258461600868627}
   - {fileID: 1476312919962420616}
+  - {fileID: 7325736026499316859}
+  - {fileID: 2481934985227598476}
   - {fileID: 4772667435036090619}
   - {fileID: 9090878679503450943}
   m_Father: {fileID: 3831596280851641935}
@@ -602,8 +604,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2599523228013011965}
-  - {fileID: 7325736026499316859}
-  - {fileID: 2481934985227598476}
   m_Father: {fileID: 5578866909471720403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8252842386947597077
@@ -847,12 +847,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7197369241100282766}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -0.00002, y: 0.0092, z: 0.00995}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: 0.7071069, w: 0}
+  m_LocalPosition: {x: 0.008749017, y: 0.00552, z: 0.00593}
+  m_LocalScale: {x: 0.001342947, y: 0.001342947, z: 0.001342947}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 4772667435036090619}
+  m_Father: {fileID: 5578866909471720403}
   m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
 --- !u!212 &7819141512785554242
 SpriteRenderer:
@@ -1014,12 +1014,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8610314595988272819}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.00002, y: 0.0092, z: -0.01}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071069}
+  m_LocalPosition: {x: 0.008749017, y: 0.00552, z: -0.02086}
+  m_LocalScale: {x: 0.001342947, y: 0.001342947, z: 0.001342947}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 4772667435036090619}
+  m_Father: {fileID: 5578866909471720403}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!212 &5907780641388846035
 SpriteRenderer:
