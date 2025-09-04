@@ -49913,6 +49913,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStart: 1
+  minRecordingSeconds: 0.5
+  finalizeTimeout: 10
+  publicSubdir: SHinVR
 --- !u!1001 &2040307275
 PrefabInstance:
   m_ObjectHideFlags: 0
