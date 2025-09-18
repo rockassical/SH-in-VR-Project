@@ -49835,6 +49835,8 @@ GameObject:
   - component: {fileID: 2032505163}
   - component: {fileID: 2032505164}
   - component: {fileID: 2032505165}
+  - component: {fileID: 2032505166}
+  - component: {fileID: 2032505167}
   m_Layer: 0
   m_Name: VideoRecorder
   m_TagString: Untagged
@@ -49913,9 +49915,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoStart: 1
-  minRecordingSeconds: 0.5
-  finalizeTimeout: 10
-  publicSubdir: SHinVR
+--- !u!114 &2032505166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032505162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d26c5c9b1064dfe81e23dfd804abb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopAfterSeconds: 35
+  milestoneSeconds: 1e0000000f00000005000000
+  uploader: {fileID: 2032505167}
+--- !u!114 &2032505167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032505162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3596ae445b40426c8f7034f7216c336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backendUrl: https://videokit-uploader.onrender.com
+  deviceTag: UnityEditor
 --- !u!1001 &2040307275
 PrefabInstance:
   m_ObjectHideFlags: 0
