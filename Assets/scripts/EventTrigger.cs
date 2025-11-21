@@ -52,8 +52,8 @@ public class EventTrigger : MonoBehaviour
             cutsceneAudio.Play();
 
         // Play animations
-        william.SetTrigger("scene");
-        jess.SetTrigger("scene");
+        william.SetBool("startScene", true);
+        jess.SetBool("startScene", true);
         // Fade back in
         yield return StartCoroutine(FadeScreen(1f, 0f, 1f));
 
