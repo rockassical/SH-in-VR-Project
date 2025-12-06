@@ -16,7 +16,8 @@ public class EventTrigger : MonoBehaviour
     Transform npcTargetPosition;
 
     public GameObject locomotion; //Reece: In the inspector I assigned the Move child instead to allow for rotation while in chair.
-//>>>>>>> Stashed changes
+                                  //>>>>>>> Stashed changes
+    public GameObject startCutsceneUI;
     public MeshRenderer rend;
     public Animator npcOneAnimator, npcTwoAnimator;
     public AudioSource cutsceneAudio;
@@ -24,11 +25,20 @@ public class EventTrigger : MonoBehaviour
     public Animator william;
 
    // public Transform playerTargetPosition, npcTargetPosition;
-    private bool fade;
+    //private bool fade;
     void OnTriggerEnter(Collider collider)
     {
         locomotion.SetActive(false);//turn off movement
         //rotation.SetActive(true);
+        if (startCutsceneUI.activeSelf == false)
+        {
+            startCutsceneUI.SetActive(true);
+        }
+    }
+
+    //This will be called whenever the StartScenario UI button is pressed.
+    public void StartCutsceneCoroutine()
+    {
         StartCoroutine(StartCutscene());
     }
     //cutscene starts
@@ -37,7 +47,7 @@ public class EventTrigger : MonoBehaviour
     IEnumerator StartCutscene()
     {
         // Fade to black
-        yield return StartCoroutine(FadeScreen(0f, 1f, 1f));
+        //yield return StartCoroutine(FadeScreen(0f, 1f, 1f));
 
         //// Move characters
         //player.transform.position = playerTargetPosition.position;

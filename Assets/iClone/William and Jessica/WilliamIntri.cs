@@ -11,7 +11,7 @@ public class WilliamIntri : MonoBehaviour
     public NavMeshAgent agent;
 
     public GameObject DWill;
-    public GameObject DJess;
+    //public GameObject DJess;
     void Start()
     {
         moveSpeed = 5;
@@ -51,7 +51,7 @@ public class WilliamIntri : MonoBehaviour
             yield return null;
 
         gameObject.SetActive(false);
-        DJess.SetActive(true);
+        //DJess.SetActive(true);
         DWill.SetActive(true);
     }
 }
