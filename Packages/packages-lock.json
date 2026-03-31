@@ -30,9 +30,9 @@
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.collab-proxy": "1.14.12"
+        "com.unity.nuget.newtonsoft-json": "3.0.0"
       },
-      "hash": "2a7288afe99fa14148d54fe5f6ca40c2aef41b0a"
+      "hash": "7f1134ea4cbc020d237646e4725a54e355b3bbef"
     },
     "com.unity.ai.navigation": {
       "version": "1.1.6",
@@ -159,7 +159,7 @@
     },
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.2.1",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"

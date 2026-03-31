@@ -166,7 +166,7 @@ Material:
     - _WrinkleValueSet3R: {r: 0, g: 0, b: 0, a: 0}
     - _WrinkleValueSetBCCB: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &87204274944866969
+--- !u!114 &7928749326670604248
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

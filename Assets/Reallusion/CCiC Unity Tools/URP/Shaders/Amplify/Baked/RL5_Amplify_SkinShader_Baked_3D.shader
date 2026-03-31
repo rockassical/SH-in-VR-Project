@@ -1,4 +1,4 @@
-// Made with Amplify Shader Editor v1.9.9.4
+// Made with Amplify Shader Editor v1.9.9.8
 // Available at the Unity Asset Store - http://u3d.as/y3X 
 Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 {
@@ -54,7 +54,6 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 		_WrinkleValueSet12CR( "Wrinkle Value Set 12C Right", Vector ) = ( 0, 0, 0, 0 )
 		_WrinkleValueSet3DB( "Wrinkle Value Set 3D Both", Vector ) = ( 0, 0, 0, 0 )
 		_WrinkleValueSetBCCB( "Wrinkle Value Set BCC Both", Vector ) = ( 0, 0, 0, 0 )
-		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 
 
 		//_TransmissionShadow( "Transmission Shadow", Range( 0, 1 ) ) = 0.5
@@ -101,6 +100,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 
 		CGINCLUDE
 			#pragma target 3.5
+			// ensure rendering platforms toggle list is visible
 
 			float4 FixedTess( float tessValue )
 			{
@@ -230,7 +230,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				#pragma multi_compile _ LOD_FADE_CROSSFADE
 				#pragma multi_compile_fog
 				#define ASE_FOG
-				#define ASE_VERSION 19904
+				#define ASE_VERSION 19908
 				#define ASE_USING_SAMPLING_MACROS 1
 
 				#pragma vertex vert
@@ -311,7 +311,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				struct v2f
 				{
 					float4 pos : SV_POSITION;
-					float4 positionWS : TEXCOORD0; // xyz = positionWS, w = fogCoord
+					float4 worldPos : TEXCOORD0; // xyz = positionWS, w = fogCoord
 					half3 normalWS : TEXCOORD1;
 					float4 tangentWS : TEXCOORD2; // holds terrainUV ifdef ENABLE_TERRAIN_PERPIXEL_NORMAL
 					half4 ambientOrLightmapUV : TEXCOORD3;
@@ -568,7 +568,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					half3 tangentWS = UnityObjectToWorldDir( v.tangent.xyz );
 
 					o.pos = UnityObjectToClipPos( v.vertex );
-					o.positionWS.xyz = positionWS;
+					o.worldPos.xyz = positionWS;
 					o.normalWS = normalWS;
 					o.tangentWS = half4( tangentWS, v.tangent.w );
 
@@ -595,7 +595,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 
 					UNITY_TRANSFER_LIGHTING(o, v.texcoord1.xy);
 					#if defined( ASE_FOG )
-						o.positionWS.w = o.pos.z;
+						UNITY_TRANSFER_FOG_COMBINED_WITH_WORLD_POS( o, o.pos );
 					#endif
 					return o;
 				}
@@ -716,14 +716,14 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					half atten;
 					{
 						#if defined( ASE_RECEIVE_SHADOWS )
-							UNITY_LIGHT_ATTENUATION( temp, IN, IN.positionWS.xyz )
+							UNITY_LIGHT_ATTENUATION( temp, IN, IN.worldPos.xyz )
 							atten = temp;
 						#else
 							atten = 1;
 						#endif
 					}
 
-					float3 PositionWS = IN.positionWS.xyz;
+					float3 PositionWS = IN.worldPos.xyz;
 					half3 ViewDirWS = normalize( UnityWorldSpaceViewDir( PositionWS ) );
 					float4 ScreenPosNorm = float4( IN.pos.xy * ( _ScreenParams.zw - 1.0 ), IN.pos.zw );
 					float4 ClipPos = ComputeClipSpacePosition( ScreenPosNorm.xy, IN.pos.z ) * IN.pos.w;
@@ -732,7 +732,6 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					half3 TangentWS = IN.tangentWS.xyz;
 					half3 BitangentWS = cross( IN.normalWS, IN.tangentWS.xyz ) * IN.tangentWS.w * unity_WorldTransformParams.w;
 					half3 LightAtten = atten;
-					float FogCoord = IN.positionWS.w;
 
 					#if defined(ENABLE_TERRAIN_PERPIXEL_NORMAL)
 						float2 sampleCoords = (IN.tangentWS.zw / _TerrainHeightmapRecipSize.zw + 0.5f) * _TerrainHeightmapRecipSize.xy;
@@ -1131,7 +1130,8 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					c.rgb += o.Emission;
 
 					#if defined( ASE_FOG )
-						UNITY_APPLY_FOG( FogCoord, c );
+						UNITY_EXTRACT_FOG_FROM_WORLD_POS( IN );
+						UNITY_APPLY_FOG(_unity_fogCoord, c.rgb);
 					#endif
 					return c;
 				}
@@ -1156,7 +1156,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				#pragma multi_compile _ LOD_FADE_CROSSFADE
 				#pragma multi_compile_fog
 				#define ASE_FOG
-				#define ASE_VERSION 19904
+				#define ASE_VERSION 19908
 				#define ASE_USING_SAMPLING_MACROS 1
 
 				#pragma vertex vert
@@ -1237,7 +1237,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				struct v2f
 				{
 					float4 pos : SV_POSITION;
-					float4 positionWS : TEXCOORD0; // xyz = positionWS, w = fogCoord
+					float4 worldPos : TEXCOORD0; // xyz = positionWS, w = fogCoord
 					half3 normalWS : TEXCOORD1;
 					float4 tangentWS : TEXCOORD2; // holds terrainUV ifdef ENABLE_TERRAIN_PERPIXEL_NORMAL
 					UNITY_LIGHTING_COORDS( 3, 4 )
@@ -1492,13 +1492,13 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					half3 tangentWS = UnityObjectToWorldDir( v.tangent.xyz );
 
 					o.pos = UnityObjectToClipPos( v.vertex );
-					o.positionWS.xyz = positionWS;
+					o.worldPos.xyz = positionWS;
 					o.normalWS = normalWS;
 					o.tangentWS = half4( tangentWS, v.tangent.w );
 
 					UNITY_TRANSFER_LIGHTING(o, v.texcoord1.xy);
 					#if defined( ASE_FOG )
-						o.positionWS.w = o.pos.z;
+						UNITY_TRANSFER_FOG_COMBINED_WITH_WORLD_POS( o, o.pos );
 					#endif
 
 					#if defined(ENABLE_TERRAIN_PERPIXEL_NORMAL)
@@ -1624,14 +1624,14 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					half atten;
 					{
 						#if defined( ASE_RECEIVE_SHADOWS )
-							UNITY_LIGHT_ATTENUATION( temp, IN, IN.positionWS.xyz )
+							UNITY_LIGHT_ATTENUATION( temp, IN, IN.worldPos.xyz )
 							atten = temp;
 						#else
 							atten = 1;
 						#endif
 					}
 
-					float3 PositionWS = IN.positionWS.xyz;
+					float3 PositionWS = IN.worldPos.xyz;
 					half3 ViewDirWS = normalize( UnityWorldSpaceViewDir( PositionWS ) );
 					float4 ScreenPosNorm = float4( IN.pos.xy * ( _ScreenParams.zw - 1.0 ), IN.pos.zw );
 					float4 ClipPos = ComputeClipSpacePosition( ScreenPosNorm.xy, IN.pos.z ) * IN.pos.w;
@@ -1640,7 +1640,6 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					half3 TangentWS = IN.tangentWS.xyz;
 					half3 BitangentWS = cross( IN.normalWS, IN.tangentWS.xyz ) * IN.tangentWS.w * unity_WorldTransformParams.w;
 					half3 LightAtten = atten;
-					float FogCoord = IN.positionWS.w;
 
 					#if defined(ENABLE_TERRAIN_PERPIXEL_NORMAL)
 						float2 sampleCoords = (IN.tangentWS.zw / _TerrainHeightmapRecipSize.zw + 0.5f) * _TerrainHeightmapRecipSize.xy;
@@ -1985,7 +1984,8 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					#endif
 
 					#if defined( ASE_FOG )
-						UNITY_APPLY_FOG( FogCoord, c );
+						UNITY_EXTRACT_FOG_FROM_WORLD_POS( IN );
+						UNITY_APPLY_FOG(_unity_fogCoord, c.rgb);
 					#endif
 					return c;
 				}
@@ -2010,7 +2010,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				#pragma multi_compile_instancing
 				#pragma multi_compile _ LOD_FADE_CROSSFADE
 				#define ASE_FOG
-				#define ASE_VERSION 19904
+				#define ASE_VERSION 19908
 				#define ASE_USING_SAMPLING_MACROS 1
 
 				#pragma vertex vert
@@ -2092,7 +2092,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				struct v2f
 				{
 					float4 pos : SV_POSITION;
-					float4 positionWS : TEXCOORD0; // xyz = positionWS, w = fogCoord
+					float4 worldPos : TEXCOORD0; // xyz = positionWS, w = fogCoord
 					half3 normalWS : TEXCOORD1;
 					float4 tangentWS : TEXCOORD2; // holds terrainUV ifdef ENABLE_TERRAIN_PERPIXEL_NORMAL
 					half4 ambientOrLightmapUV : TEXCOORD3;
@@ -2340,7 +2340,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					half3 tangentWS = UnityObjectToWorldDir( v.tangent.xyz );
 
 					o.pos = UnityObjectToClipPos( v.vertex );
-					o.positionWS.xyz = positionWS;
+					o.worldPos.xyz = positionWS;
 					o.normalWS = normalWS;
 					o.tangentWS = half4( tangentWS, v.tangent.w );
 
@@ -2487,7 +2487,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 						#endif
 					#endif
 
-					float3 PositionWS = IN.positionWS.xyz;
+					float3 PositionWS = IN.worldPos.xyz;
 					half3 ViewDirWS = normalize( UnityWorldSpaceViewDir( PositionWS ) );
 					float4 ScreenPosNorm = float4( IN.pos.xy * ( _ScreenParams.zw - 1.0 ), IN.pos.zw );
 					float4 ClipPos = ComputeClipSpacePosition( ScreenPosNorm.xy, IN.pos.z ) * IN.pos.w;
@@ -2866,7 +2866,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				#pragma multi_compile_instancing
 				#pragma multi_compile _ LOD_FADE_CROSSFADE
 				#define ASE_FOG
-				#define ASE_VERSION 19904
+				#define ASE_VERSION 19908
 				#define ASE_USING_SAMPLING_MACROS 1
 
 				#pragma vertex vert
@@ -3188,6 +3188,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					float4 vertex : INTERNALTESSPOS;
 					float4 tangent : TANGENT;
 					float3 normal : NORMAL;
+					float4 texcoord : TEXCOORD0;
 					float4 texcoord1 : TEXCOORD1;
 					float4 texcoord2 : TEXCOORD2;
 					
@@ -3208,6 +3209,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					o.vertex = v.vertex;
 					o.tangent = v.tangent;
 					o.normal = v.normal;
+					o.texcoord = v.texcoord;
 					o.texcoord1 = v.texcoord1;
 					o.texcoord2 = v.texcoord2;
 					
@@ -3250,6 +3252,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					o.vertex = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 					o.tangent = patch[0].tangent * bary.x + patch[1].tangent * bary.y + patch[2].tangent * bary.z;
 					o.normal = patch[0].normal * bary.x + patch[1].normal * bary.y + patch[2].normal * bary.z;
+					o.texcoord = patch[0].texcoord * bary.x + patch[1].texcoord * bary.y + patch[2].texcoord * bary.z;
 					o.texcoord1 = patch[0].texcoord1 * bary.x + patch[1].texcoord1 * bary.y + patch[2].texcoord1 * bary.z;
 					o.texcoord2 = patch[0].texcoord2 * bary.x + patch[1].texcoord2 * bary.y + patch[2].texcoord2 * bary.z;
 					
@@ -3444,7 +3447,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					float3 worldNormal95_g110 = normalize( float3( dot( tanToWorld0, tanNormal95_g110 ), dot( tanToWorld1, tanNormal95_g110 ), dot( tanToWorld2, tanNormal95_g110 ) ) );
 					float3 worldSpaceLightDir = Unity_SafeNormalize( UnityWorldSpaceLightDir( ase_positionWS ) );
 					float3 normalizeResult102_g110 = normalize( ( ( _SSSNormalDistortion * worldNormal95_g110 ) + worldSpaceLightDir ) );
-					float3 ase_viewVectorWS = ( _WorldSpaceCameraPos.xyz - ase_positionWS );
+					float3 ase_viewVectorWS = ( ( unity_OrthoParams.w == 0 ) ? _WorldSpaceCameraPos - ase_positionWS : UNITY_MATRIX_V[ 2 ].xyz );
 					float3 ase_viewDirSafeWS = Unity_SafeNormalize( ase_viewVectorWS );
 					float dotResult106_g110 = dot( -normalizeResult102_g110 , ase_viewDirSafeWS );
 					float dotResult111_g110 = dot( worldNormal95_g110 , ase_viewDirSafeWS );
@@ -3508,7 +3511,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				#pragma multi_compile_instancing
 				#pragma multi_compile _ LOD_FADE_CROSSFADE
 				#define ASE_FOG
-				#define ASE_VERSION 19904
+				#define ASE_VERSION 19908
 				#define ASE_USING_SAMPLING_MACROS 1
 
 				#pragma vertex vert
@@ -3909,7 +3912,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				#pragma multi_compile_instancing
 				#pragma multi_compile _ LOD_FADE_CROSSFADE
 				#define ASE_FOG
-				#define ASE_VERSION 19904
+				#define ASE_VERSION 19908
 				#define ASE_USING_SAMPLING_MACROS 1
 
 				#pragma vertex vert
@@ -3974,7 +3977,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				struct v2f
 				{
 					float4 pos : SV_POSITION;
-					float4 positionWS : TEXCOORD0; // xyz = positionWS
+					float4 worldPos : TEXCOORD0; // xyz = positionWS
 					half3 normalWS : TEXCOORD1;
 					
 					UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -4140,7 +4143,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					half3 normalWS = UnityObjectToWorldNormal( v.normal );
 
 					o.pos = UnityObjectToClipPos( v.vertex );
-					o.positionWS.xyz = positionWS;
+					o.worldPos.xyz = positionWS;
 					o.normalWS = normalWS;
 					return o;
 				}
@@ -4275,7 +4278,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				#pragma multi_compile_instancing
 				#pragma multi_compile _ LOD_FADE_CROSSFADE
 				#define ASE_FOG
-				#define ASE_VERSION 19904
+				#define ASE_VERSION 19908
 				#define ASE_USING_SAMPLING_MACROS 1
 
 				#pragma vertex vert
@@ -4339,7 +4342,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 				struct v2f
 				{
 					float4 pos : SV_POSITION;
-					float4 positionWS : TEXCOORD0; // xyz = positionWS
+					float4 worldPos : TEXCOORD0; // xyz = positionWS
 					half3 normalWS : TEXCOORD1;
 					
 					UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -4505,7 +4508,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 					half3 normalWS = UnityObjectToWorldNormal( v.normal );
 
 					o.pos = UnityObjectToClipPos( v.vertex );
-					o.positionWS.xyz = positionWS;
+					o.worldPos.xyz = positionWS;
 					o.normalWS = normalWS;
 					return o;
 				}
@@ -4630,7 +4633,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Baked_3D"
 	Fallback "Shader Graphs/RL5_SkinShader_Baked_3D"
 }
 /*ASEBEGIN
-Version=19904
+Version=19908
 Node;AmplifyShaderEditor.CommentaryNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;176;-2368,-960;Inherit;False;1855.013;669.454;Comment;21;369;336;155;340;314;339;148;374;338;337;156;219;375;147;154;218;262;146;335;258;153;;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;178;-2224,688;Inherit;False;1764.486;534.3745;Comment;13;397;398;394;168;167;341;224;164;165;222;221;150;265;;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;175;-2208,-1472;Inherit;False;1705.688;500.4623;Comment;9;379;200;174;313;173;215;216;378;377;;1,1,1,1;0;0
@@ -4821,14 +4824,14 @@ Node;AmplifyShaderEditor.ViewDirInputsCoordNode, AmplifyShaderEditor, Version=0.
 Node;AmplifyShaderEditor.OneMinusNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;383;-2032,464;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SaturateNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;386;-1872,512;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.CustomExpressionNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;416;-2192,432;Inherit;False;float NdotV = saturate(dot( N, V))@$float om = 1 - NdotV@$float oms = om * om@$return oms * oms@;1;Create;2;True;N;FLOAT3;0,0,0;In;;Inherit;False;True;V;FLOAT3;0,0,0;In;;Inherit;False;Faster Fresnel;True;False;0;;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;400;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ExtraPrePass;0;0;ExtraPrePass;6;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;False;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=ForwardBase;False;False;0;;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;402;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ForwardAdd;0;2;ForwardAdd;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;False;0;False;True;4;1;False;;1;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;True;1;LightMode=ForwardAdd;False;False;0;;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;403;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;Deferred;0;3;Deferred;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;False;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Deferred;False;False;0;;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;404;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;Meta;0;4;Meta;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Meta;False;False;0;;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;405;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ShadowCaster;0;5;ShadowCaster;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;False;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;False;True;1;LightMode=ShadowCaster;False;False;0;;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;406;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;SceneSelectionPass;0;6;SceneSelectionPass;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;False;False;True;1;LightMode=SceneSelectionPass;False;False;0;;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;407;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ScenePickingPass;0;7;ScenePickingPass;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;False;False;True;1;LightMode=ScenePickingPass;False;False;0;;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;401;32,1056;Float;False;True;-1;3;AmplifyShaderEditor.MaterialInspector;0;4;Reallusion/Amplify/RL5_SkinShader_Baked_3D;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ForwardBase;0;1;ForwardBase;17;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;False;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=ForwardBase;False;False;0;Shader Graphs/RL5_SkinShader_Baked_3D;0;0;Standard;44;Category;0;0;  Instanced Terrain Normals;1;0;Workflow;1;0;Surface;0;0;  Blend;0;0;  Dither Shadows;1;0;Two Sided;1;0;Alpha Clipping;0;0;  Use Shadow Threshold;0;0;Deferred Pass;1;0;Normal Space;0;0;Transmission;0;0;  Transmission Shadow;0.5,False,;0;Translucency;0;0;  Translucency Strength;1,False,;0;  Normal Distortion;0.5,False,;0;  Scattering;2,False,;0;  Direct;0.9,False,;0;  Ambient;0.1,False,;0;  Shadow;0.5,False,;0;Cast Shadows;1;0;Receive Shadows;1;0;Receive Specular;2;0;Receive Reflections;2;0;GPU Instancing;1;0;LOD CrossFade;1;0;Built-in Fog;1;0;Ambient Light;1;0;Meta Pass;1;0;Add Pass;1;0;Override Baked GI;0;0;Write Depth;0;0;Extra Pre Pass;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Disable Batching;0;0;Vertex Position;1;0;0;8;False;True;True;True;True;True;True;True;False;;True;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;400;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ExtraPrePass;0;0;ExtraPrePass;6;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;True;12;all;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;False;True;1;LightMode=ForwardBase;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;402;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ForwardAdd;0;2;ForwardAdd;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;True;12;all;0;False;True;4;1;False;;1;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;True;1;LightMode=ForwardAdd;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;403;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;Deferred;0;3;Deferred;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Deferred;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;404;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;Meta;0;4;Meta;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Meta;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;405;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ShadowCaster;0;5;ShadowCaster;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;False;False;True;1;LightMode=ShadowCaster;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;406;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;SceneSelectionPass;0;6;SceneSelectionPass;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;False;False;False;True;1;LightMode=SceneSelectionPass;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;407;322.3807,257.9512;Float;False;False;-1;3;AmplifyShaderEditor.MaterialInspector;0;1;New Amplify Shader;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ScenePickingPass;0;7;ScenePickingPass;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;False;False;False;True;1;LightMode=ScenePickingPass;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode, AmplifyShaderEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;401;32,1056;Float;False;True;-1;3;AmplifyShaderEditor.MaterialInspector;0;3;Reallusion/Amplify/RL5_SkinShader_Baked_3D;ed95fe726fd7b4644bb42f4d1ddd2bcd;True;ForwardBase;0;1;ForwardBase;17;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;False;False;True;3;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;DisableBatching=False=DisableBatching;True;3;True;12;all;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=ForwardBase;False;False;0;Shader Graphs/RL5_SkinShader_Baked_3D;0;0;Standard;44;Category;0;0;  Instanced Terrain Normals;1;0;Workflow;1;0;Surface;0;0;  Blend;0;0;  Dither Shadows;1;0;Two Sided;1;0;Alpha Clipping;0;0;  Use Shadow Threshold;0;0;Deferred Pass;1;0;Normal Space;0;0;Transmission;0;0;  Transmission Shadow;0.5,False,;0;Translucency;0;0;  Translucency Strength;1,False,;0;  Normal Distortion;0.5,False,;0;  Scattering;2,False,;0;  Direct;0.9,False,;0;  Ambient;0.1,False,;0;  Shadow;0.5,False,;0;Cast Shadows;1;0;Receive Shadows;1;0;Receive Specular;2;0;Receive Reflections;2;0;GPU Instancing;1;0;LOD CrossFade;1;0;Built-in Fog;1;0;Ambient Light;1;0;Meta Pass;1;0;Add Pass;1;0;Override Baked GI;0;0;Write Depth;0;0;Extra Pre Pass;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Disable Batching;0;0;Vertex Position;1;0;0;8;False;True;True;True;True;True;True;True;False;;True;0
 WireConnection;258;0;153;0
 WireConnection;150;7;265;0
 WireConnection;146;5;258;0
@@ -5037,4 +5040,4 @@ WireConnection;401;6;412;0
 WireConnection;401;2;410;0
 WireConnection;401;15;413;0
 ASEEND*/
-//CHKSM=B4F1DCECC6B36A6D829C8F91CD029874E4EBA74B
+//CHKSM=328D147B0D4FD18DF5CF9A2EF1DC071281F5DBB3
