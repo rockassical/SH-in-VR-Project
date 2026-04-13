@@ -9,7 +9,9 @@ public class JessicaIntro : MonoBehaviour
     public Transform targetPoint;
     public float moveSpeed;
     public NavMeshAgent agent;
-    
+
+    public GameObject DJess;
+
     void Start()
     {
         moveSpeed = 5;
@@ -33,7 +35,7 @@ public class JessicaIntro : MonoBehaviour
 
     IEnumerator toWalk()
     {
-        agent.enabled = false;
+        //agent.enabled = false;
         animator.SetTrigger("Intro");
         yield return new WaitForSeconds(20f);
 
@@ -41,8 +43,11 @@ public class JessicaIntro : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         // Move toward the target
-        agent.updateRotation = false;
-        agent.enabled = true;
+        agent.SetDestination(targetPoint.position);
+
+        // Removed temporarily to match to William's
+        //agent.updateRotation = false;
+        //agent.enabled = true;
 
         //Stop moving if close enough
         // Wait until agent reaches destination
@@ -51,6 +56,8 @@ public class JessicaIntro : MonoBehaviour
         while (agent.remainingDistance > agent.stoppingDistance + 0.05f)
             yield return null;
 
+
         gameObject.SetActive(false);
+        DJess.SetActive(true);
     }
  }

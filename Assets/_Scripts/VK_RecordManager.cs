@@ -1,6 +1,9 @@
+// VK_RecordManager.cs
+
 using UnityEngine;
 using System.Collections;
 using VideoKit;
+using System.IO;
 
 [RequireComponent(typeof(VideoKitRecorder))]
 [DefaultExecutionOrder(-1000)]
@@ -14,8 +17,20 @@ public class VK_RecordManager : MonoBehaviour
     void Awake()
     {
         recorder = GetComponent<VideoKitRecorder>();
-        string expected = System.IO.Path.Combine(Application.persistentDataPath, "VideoKit/recordings");
-        Debug.Log($"[VK_RecordManager] Expected recordings folder: {expected}");
+
+        // Print expected save folders (Editor + Quest defaults)
+        string editorRoot = Directory.GetParent(Application.dataPath)?.FullName;
+        string[] expectedDirs = new string[]
+        {
+            Path.Combine(Application.persistentDataPath, "VideoKit/recordings"),
+            Path.Combine(Application.persistentDataPath, "recordings"),
+            editorRoot != null ? Path.Combine(editorRoot, "Captures") : null,
+            editorRoot != null ? Path.Combine(editorRoot, "recordings") : null,
+            editorRoot != null ? Path.Combine(editorRoot, "VideoKit", "recordings") : null,
+        };
+
+        Debug.Log("[VK_RecordManager] Expected recordings folders:\n  " +
+                  string.Join("\n  ", expectedDirs));
     }
 
     void OnEnable()
@@ -24,8 +39,6 @@ public class VK_RecordManager : MonoBehaviour
         if (!recorder.enabled) recorder.enabled = true;
         StartCoroutine(StartNextFrame());
     }
-
-    void OnApplicationQuit() { if (started && recorder) recorder.StopRecording(); }
 
     IEnumerator StartNextFrame()
     {

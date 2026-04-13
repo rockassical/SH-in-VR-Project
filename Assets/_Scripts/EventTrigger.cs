@@ -2,83 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.Playables;
-using UnityEngine.Timeline;
-using SWS;
 
 public class EventTrigger : MonoBehaviour
 {
 //<<<<<<< Updated upstream
     //Reece: Commented out to prevent redundancy in activating rotation. 
-    public GameObject rotation;
-    public PlayerSplineMove playerSplineControl;
-
+    //public GameObject rotation;
 //=======
     public GameObject player;
-    
+    public GameObject npc;
+
     Transform playerTargetPosition;
     Transform npcTargetPosition;
-    public Transform target2rotate;
 
     public GameObject locomotion; //Reece: In the inspector I assigned the Move child instead to allow for rotation while in chair.
-//>>>>>>> Stashed changes
+                                  //>>>>>>> Stashed changes
+    public GameObject startCutsceneUI;
     public MeshRenderer rend;
     public Animator npcOneAnimator, npcTwoAnimator;
     public AudioSource cutsceneAudio;
     public Animator jess;
     public Animator william;
 
-    [Header("Resume William Actions")]
-    public splineMove _splineWilliam;
-    public PlayableDirector _directorJW;
-    public AnimationStateChangeWilliam stateChangeW;
-    public float waitTime;
-
-    // public Transform playerTargetPosition, npcTargetPosition;
-    private bool fade;
-    void OnTriggerEnter(Collider col)
+   // public Transform playerTargetPosition, npcTargetPosition;
+    //private bool fade;
+    void OnTriggerEnter(Collider collider)
     {
-        gameObject.GetComponent<BoxCollider>().enabled = false;
-        playerSplineControl.minSpeed = 0;
-        splineMove playerSpline = col.gameObject.GetComponentInParent<splineMove>();
+        locomotion.SetActive(false);//turn off movement
+        //rotation.SetActive(true);
+        if (startCutsceneUI.activeSelf == false)
+        {
+            startCutsceneUI.SetActive(true);
+        }
+    }
 
-        if (playerSpline != null)
-
-        playerSpline.Pause();
-        playerSpline.enabled = false;
-        Debug.Log("player spline disabled");
-
-        //player.transform.rotation = target2rotate.transform.rotation;
-        player.transform.position = target2rotate.transform.position;
-        player.transform.rotation = target2rotate.transform.rotation;
-
-    
-
-        //locomotion.SetActive(false);//turn off movement
-      
-        //StartCoroutine(StartCutscene());
-
-        StartCoroutine(WilliamIdle2Walk(waitTime));
-        
-        
+    //This will be called whenever the StartScenario UI button is pressed.
+    public void StartCutsceneCoroutine()
+    {
+        StartCoroutine(StartCutscene());
     }
     //cutscene starts
     //new changes in progress to test 06/26/25
 
-    IEnumerator WilliamIdle2Walk(float t)
-    {
-       yield return new WaitForSeconds(t);
-
-        _splineWilliam.Resume();
-        stateChangeW.SetTrue();
-    }
-
-
-
     IEnumerator StartCutscene()
     {
         // Fade to black
-        yield return StartCoroutine(FadeScreen(0f, 1f, 1f));
+        //yield return StartCoroutine(FadeScreen(0f, 1f, 1f));
 
         //// Move characters
         //player.transform.position = playerTargetPosition.position;
@@ -93,8 +62,8 @@ public class EventTrigger : MonoBehaviour
             cutsceneAudio.Play();
 
         // Play animations
-        william.SetTrigger("scene");
-        jess.SetTrigger("scene");
+        william.SetBool("startScene", true);
+        jess.SetBool("startScene", true);
         // Fade back in
         yield return StartCoroutine(FadeScreen(1f, 0f, 1f));
 

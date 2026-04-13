@@ -2,47 +2,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.AI;
-using UnityEngine.Playables;
-using UnityEngine.Timeline;
-using SWS;
-
-
-
 public class BeginJane : MonoBehaviour
 {
-
-    //public Animator animator;
+    [Header("References")]
+    public Animator animator;
     public AudioSource audioSource;
-    //public Transform targetPoint;
-    //public float moveSpeed;
-    //public NavMeshAgent agent;
-    //public Transform targetTwo;
-    //public Transform targetThree;
-    // public Transform targetFour;
-    //public Transform targetFive;
-
-    public GameObject Jane;
-    public GameObject Jessica;
+    public Transform targetPoint;
+    public float moveSpeed;
+    public NavMeshAgent agent;
+    public Transform targetTwo;
+    public Transform targetThree;
+    public Transform targetFour;
+    public Transform targetFive;
+    public GameObject Jess;
     public GameObject Will;
-    public float waitTime;
-
-    public PlayableDirector _directorJane;
-
-
     void Start()
     {
-        //moveSpeed = 5;
+        moveSpeed = 5;
     }
     private void Update()
     {
-        /*Vector3 velocity = agent.velocity;
+        Vector3 velocity = agent.velocity;
 
         if (velocity.sqrMagnitude > 0.01f) // make sure it's actually moving
         {
             Quaternion lookRotation = Quaternion.LookRotation(velocity);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
         }
-        */
     }
     void PlayAnimationAndAudio()
     {
@@ -51,37 +37,13 @@ public class BeginJane : MonoBehaviour
     public void ButtonActive()
     {
         gameObject.SetActive(true);
-        Jessica.SetActive(true);
+        Jess.SetActive(true);
         Will.SetActive(true);
-        //PlayAnimationAndAudio();
-        //StartCoroutine(toWalk());
+        PlayAnimationAndAudio();
+        StartCoroutine(toWalk());
         //gameObject.SetActive(false);
     }
-
-
-    public void BeginExperience()
-    {
-        gameObject.SetActive(true);
-        StartCoroutine(StartExperience(waitTime));
-    }
-
-
-    IEnumerator StartExperience(float t)
-    {
-        yield return new WaitForSeconds(t);
-
-        
-        Jessica.SetActive(true);
-        Will.SetActive(true);
-        Jane.SetActive(true); 
-        _directorJane.Play(); 
-
-
-    }
-
-
-
- /*
+ 
      IEnumerator toWalk() 
     {
         animator.SetTrigger("Walk");
@@ -109,7 +71,6 @@ public class BeginJane : MonoBehaviour
         animator.SetTrigger("End");
         agent.SetDestination(targetFive.position);
 
-    }
-*/
 
+    }
 }
