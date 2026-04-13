@@ -2011,7 +2011,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose Target
+  m_text: Choose Victim
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbb7c6a04be6d8341934b839f24b42e1, type: 2}
   m_sharedMaterial: {fileID: 4687939059374929122, guid: fbb7c6a04be6d8341934b839f24b42e1, type: 2}
@@ -2987,7 +2987,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select the <color=#30CF26>Victim</color> of the incident and press <color=#30CF26>Report</color>...
+  m_text: Select the <color=#FF5F5F>Victim</color> of the incident and press <color=#30CF26>Report</color>...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbb7c6a04be6d8341934b839f24b42e1, type: 2}
   m_sharedMaterial: {fileID: 4687939059374929122, guid: fbb7c6a04be6d8341934b839f24b42e1, type: 2}
@@ -3928,8 +3928,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#30CF26>Select the Recipient</color> of the message from the dropdown
-    and then press<color=#30CF26> Select</color>...
+  m_text: <color=#30CF26>Select the the person you want to send a direct voice message
+    to</color> from the dropdown and then press<color=#30CF26> Select</color>...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbb7c6a04be6d8341934b839f24b42e1, type: 2}
   m_sharedMaterial: {fileID: 4687939059374929122, guid: fbb7c6a04be6d8341934b839f24b42e1, type: 2}
@@ -9495,7 +9495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select the <color=#30CF26>Offender</color> of the incident and press <color=#30CF26>Select</color>...
+  m_text: Select the <color=#FF5F5F>Offender</color> of the incident and press <color=#30CF26>Select</color>...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbb7c6a04be6d8341934b839f24b42e1, type: 2}
   m_sharedMaterial: {fileID: 4687939059374929122, guid: fbb7c6a04be6d8341934b839f24b42e1, type: 2}
@@ -11348,7 +11348,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: <color=#30CF26>Press</color> the <color=#30CF26>Start Recording</color>
-    Button to record the message. Press the buutton again to stop recording. Then
+    Button to record the message. Press the button again to stop recording. Then
     press <color=#30CF26>Send</color> to send the message!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbb7c6a04be6d8341934b839f24b42e1, type: 2}
@@ -19573,7 +19573,7 @@ MonoBehaviour:
 
 
     Now, we want to help you
-    understand how to use some reporting options!
+    understand how to use a reporting option!
 
 
     Press <color=#30CF26>Continue</color>
@@ -21034,13 +21034,13 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Harrasment
+    - m_Text: Sexual Harrasment
       m_Image: {fileID: 0}
-    - m_Text: Underage Person
+    - m_Text: Bullying
       m_Image: {fileID: 0}
-    - m_Text: Intellectual Property Issue
+    - m_Text: Discrimination
       m_Image: {fileID: 0}
-    - m_Text: Something Else
+    - m_Text: Unethical Behavior
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -22050,13 +22050,13 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Harrasment
+    - m_Text: Sexual Harrasment
       m_Image: {fileID: 0}
-    - m_Text: Underage Person
+    - m_Text: Bullying
       m_Image: {fileID: 0}
-    - m_Text: Intellectual Property Issue
+    - m_Text: Discrimination
       m_Image: {fileID: 0}
-    - m_Text: Something Else
+    - m_Text: Unethical Behavior
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -26014,15 +26014,15 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: User 1
+    - m_Text: Employee 1
       m_Image: {fileID: 0}
-    - m_Text: User 2
+    - m_Text: Employee 2
       m_Image: {fileID: 0}
-    - m_Text: User 3
+    - m_Text: Employee 3
       m_Image: {fileID: 0}
-    - m_Text: User 4
+    - m_Text: Employee 4
       m_Image: {fileID: 0}
-    - m_Text: User 5
+    - m_Text: Employee 5
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -26436,7 +26436,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: User 1
+  m_text: Employee 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27432,11 +27432,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: User 1
+    - m_Text: Employee 1
       m_Image: {fileID: 0}
-    - m_Text: User 2
+    - m_Text: Employee 2
       m_Image: {fileID: 0}
-    - m_Text: User 3
+    - m_Text: Employee 3
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -29753,7 +29753,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Harrasment
+  m_text: Sexual Harrasment
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -34052,7 +34052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Harrasment
+  m_text: Sexual Harrasment
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -48047,7 +48047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: User 1
+  m_text: Employee 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -50105,11 +50105,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: User 1
+    - m_Text: Employee 1
       m_Image: {fileID: 0}
-    - m_Text: User 2
+    - m_Text: Employee 2
       m_Image: {fileID: 0}
-    - m_Text: User 3
+    - m_Text: Employee 3
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -51416,7 +51416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: User 1
+  m_text: Employee 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
