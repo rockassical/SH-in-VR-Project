@@ -9220,7 +9220,7 @@ PrefabInstance:
     - target: {fileID: 8484781199124016221, guid: 256edc53126aee447a1f88de4bbed7da, type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 9000000, guid: 485b0c6772056a644ae21ff1be253329, type: 3}
+      objectReference: {fileID: 9000000, guid: 1100f115de14adb48994a4eb0a9586e3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
