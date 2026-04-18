@@ -1,49 +1,9 @@
 fileFormatVersion: 2
-guid: 485b0c6772056a644ae21ff1be253329
+guid: 83d540ec63fa7bc48af020f2472a4362
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Hairstyle_Julia_Transparency
-    second: {fileID: 2100000, guid: 13c443aee256f4d4295fde92c51becab, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Std_Eyelash
-    second: {fileID: 2100000, guid: 66d6d73ec2a616a4cb22522fe5c34a88, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Std_Skin_Arm
-    second: {fileID: 2100000, guid: b8492e9fdc3700a4fbff6c81d9f4bb30, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Std_Skin_Body
-    second: {fileID: 2100000, guid: 4fed66f851413ad4ea5497c1800c66cb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Std_Skin_Head
-    second: {fileID: 2100000, guid: 104e99b00492c1640af3bf995906311b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Std_Skin_Leg
-    second: {fileID: 2100000, guid: f217c78bd1d139e42bf96224a691eb12, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sweater
-    second: {fileID: 2100000, guid: dada4ad3531ad5f47846b61316a7f130, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Trousers
-    second: {fileID: 2100000, guid: 28e83849a73cf9b4ebce90459e464f81, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -57,9 +17,54 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'CC_Base_L_Thigh'
+      : position error = 7.298203 mm\n\t'CC_Base_L_Calf' : position error = 33.953304
+      mm\n\t'CC_Base_L_Foot' : position error = 32.131870 mm\n\t'CC_Base_L_ToeBase'
+      : position error = 11.302369 mm\n\t'CC_Base_R_Thigh' : position error = 7.298172
+      mm\n\t'CC_Base_R_Calf' : position error = 33.953922 mm\n\t'CC_Base_R_Foot'
+      : position error = 32.132420 mm\n\t'CC_Base_R_ToeBase' : position error = 11.292153
+      mm\n\t'CC_Base_Waist' : position error = 5.454480 mm\n\t'CC_Base_Spine01' :
+      position error = 3.025959 mm\n\t'CC_Base_Spine02' : position error = 11.326911
+      mm\n\t'CC_Base_NeckTwist01' : position error = 21.394350 mm\n\t'CC_Base_NeckTwist02'
+      : position error = 3.471437 mm\n\t'CC_Base_Head' : position error = 4.019373
+      mm\n\t'CC_Base_JawRoot' : position error = 2.291866 mm\n\t'CC_Base_R_Eye' :
+      position error = 8.235968 mm\n\t'CC_Base_L_Eye' : position error = 8.240129
+      mm\n\t'CC_Base_L_Clavicle' : position error = 17.314671 mm\n\t'CC_Base_L_Upperarm'
+      : position error = 8.850101 mm\n\t'CC_Base_L_Forearm' : position error = 19.941885
+      mm\n\t'CC_Base_L_Hand' : position error = 19.153265 mm\n\t'CC_Base_L_Pinky1'
+      : position error = 7.473926 mm\n\t'CC_Base_L_Pinky2' : position error = 2.348938
+      mm\n\t'CC_Base_L_Pinky3' : position error = 1.213978 mm\n\t'CC_Base_L_Ring1'
+      : position error = 7.363222 mm\n\t'CC_Base_L_Ring2' : position error = 3.318700
+      mm\n\t'CC_Base_L_Ring3' : position error = 1.843962 mm\n\t'CC_Base_L_Mid1'
+      : position error = 7.532375 mm\n\t'CC_Base_L_Mid2' : position error = 3.519916
+      mm\n\t'CC_Base_L_Mid3' : position error = 2.248707 mm\n\t'CC_Base_L_Index1'
+      : position error = 7.756391 mm\n\t'CC_Base_L_Index2' : position error = 3.129264
+      mm\n\t'CC_Base_L_Index3' : position error = 2.078248 mm\n\t'CC_Base_L_Thumb1'
+      : position error = 2.369306 mm\n\t'CC_Base_L_Thumb2' : position error = 4.602553
+      mm\n\t'CC_Base_L_Thumb3' : position error = 2.252863 mm\n\t'CC_Base_R_Clavicle'
+      : position error = 17.314251 mm\n\t'CC_Base_R_Upperarm' : position error =
+      8.850171 mm\n\t'CC_Base_R_Forearm' : position error = 19.942127 mm\n\t'CC_Base_R_Hand'
+      : position error = 19.153822 mm\n\t'CC_Base_R_Ring1' : position error = 7.363517
+      mm\n\t'CC_Base_R_Ring2' : position error = 3.318576 mm\n\t'CC_Base_R_Ring3'
+      : position error = 1.844136 mm\n\t'CC_Base_R_Mid1' : position error = 7.533271
+      mm\n\t'CC_Base_R_Mid2' : position error = 3.519680 mm\n\t'CC_Base_R_Mid3' :
+      position error = 2.248334 mm\n\t'CC_Base_R_Thumb1' : position error = 2.369949
+      mm\n\t'CC_Base_R_Thumb2' : position error = 4.601850 mm\n\t'CC_Base_R_Thumb3'
+      : position error = 2.252820 mm\n\t'CC_Base_R_Index1' : position error = 7.757762
+      mm\n\t'CC_Base_R_Index2' : position error = 3.129287 mm\n\t'CC_Base_R_Index3'
+      : position error = 2.078221 mm\n\t'CC_Base_R_Pinky1' : position error = 7.473741
+      mm\n\t'CC_Base_R_Pinky2' : position error = 2.348711 mm\n\t'CC_Base_R_Pinky3'
+      : position error = 1.214118 mm\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'WillWalk' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'CC_Base_NeckTwist02' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'WillIdle'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'CC_Base_NeckTwist02'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'CC_Base_JawRoot'
+      has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -73,11 +78,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: 5496904592896_TempMotion (1)
-      takeName: 5496904592896_TempMotion
+      name: 0_T-Pose
+      takeName: 0_T-Pose
       internalID: -7881739814215078984
       firstFrame: 0
-      lastFrame: 9501
+      lastFrame: 1109
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -102,18 +107,47 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: 5496904592896_TempMotion
-      takeName: 5496904592896_TempMotion
-      internalID: -7448902386900527523
+      name: WillWalk
+      takeName: WillWalk
+      internalID: 5702080043840546895
       firstFrame: 0
-      lastFrame: 9501
+      lastFrame: 413
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: WillIdle
+      takeName: WillIdle
+      internalID: -1019140434906852693
+      firstFrame: 0
+      lastFrame: 1109
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

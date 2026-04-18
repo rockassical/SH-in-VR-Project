@@ -1738,8 +1738,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1962244144}
-          m_TargetAssemblyTypeName: AnimationStateChangeJessica, Assembly-CSharp
+        - m_Target: {fileID: 274575976}
+          m_TargetAssemblyTypeName: AnimationStateChangeWilliam, Assembly-CSharp
           m_MethodName: SetTrue
           m_Mode: 1
           m_Arguments:
@@ -1750,8 +1750,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 656764637}
-          m_TargetAssemblyTypeName: AnimationStateChangeWilliam, Assembly-CSharp
+        - m_Target: {fileID: 2046259483}
+          m_TargetAssemblyTypeName: AnimationStateChangeJessica, Assembly-CSharp
           m_MethodName: SetTrue
           m_Mode: 1
           m_Arguments:
@@ -1806,7 +1806,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 656764637}
+        - m_Target: {fileID: 274575976}
           m_TargetAssemblyTypeName: AnimationStateChangeWilliam, Assembly-CSharp
           m_MethodName: SetFalse
           m_Mode: 1
@@ -5749,6 +5749,20 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7663360689145589366, guid: cf54f3dc9c85cbf49b089b4931a64a98, type: 3}
   m_PrefabInstance: {fileID: 961675423}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &274575976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274575972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45eecb0bcb782094cb3f94c88ac23325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorW: {fileID: 274575975}
+  parameterW: isWalking
 --- !u!1 &278721744
 GameObject:
   m_ObjectHideFlags: 0
@@ -9221,6 +9235,19 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 1100f115de14adb48994a4eb0a9586e3, type: 3}
+    - target: {fileID: 8484781199124016221, guid: 256edc53126aee447a1f88de4bbed7da, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9fcd56bcb56c3b54794042f7df35d997, type: 2}
+    - target: {fileID: 8484781199124016221, guid: 256edc53126aee447a1f88de4bbed7da, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'CC_Base_R_Foot'\n\tTransform 'CC_Base_R_Calf'\n\tTransform
+        'CC_Base_L_Mid3'\n\tTransform 'CC_Base_R_Index2'\n\tTransform 'CC_Base_L_Index2'\n\tTransform
+        'CC_Base_BoneRoot'\n\tTransform 'CC_Base_L_Pinky2'\n\tTransform 'CC_Base_R_Pinky2'\n\tTransform
+        'CC_Base_L_Index3'\n\tTransform 'CC_Base_Head'\n\tand more ..."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9228,6 +9255,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2887937606576680093, guid: 256edc53126aee447a1f88de4bbed7da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2046259481}
+    - targetCorrespondingSourceObject: {fileID: 2887937606576680093, guid: 256edc53126aee447a1f88de4bbed7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2046259483}
   m_SourcePrefab: {fileID: 100100000, guid: 256edc53126aee447a1f88de4bbed7da, type: 3}
 --- !u!1 &444589761
 GameObject:
@@ -26080,6 +26110,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9000000, guid: 08ab479c12f7565449a24e4ec1e6ba7f, type: 3}
     - target: {fileID: 7663360689145589366, guid: cf54f3dc9c85cbf49b089b4931a64a98, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d5a76d62725e70a4e9400b3cfb55bdb8, type: 2}
+    - target: {fileID: 7663360689145589366, guid: cf54f3dc9c85cbf49b089b4931a64a98, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
@@ -26090,6 +26124,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4031361074685718198, guid: cf54f3dc9c85cbf49b089b4931a64a98, type: 3}
       insertIndex: -1
       addedObject: {fileID: 274575974}
+    - targetCorrespondingSourceObject: {fileID: 4031361074685718198, guid: cf54f3dc9c85cbf49b089b4931a64a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 274575976}
   m_SourcePrefab: {fileID: 100100000, guid: cf54f3dc9c85cbf49b089b4931a64a98, type: 3}
 --- !u!1 &961743659
 GameObject:
@@ -55149,6 +55186,20 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8484781199124016221, guid: 256edc53126aee447a1f88de4bbed7da, type: 3}
   m_PrefabInstance: {fileID: 444566411}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2046259483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046259479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7553053aa95a1a24a93932c9f81d66ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2046259482}
+  parameter: isWalking
 --- !u!1 &2049937549
 GameObject:
   m_ObjectHideFlags: 0
