@@ -23,6 +23,7 @@ public class PlayerTriggerJaneMove : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            _splinePlayer.Pause();
             if (_splineJane.IsPaused())
             {
                 StartCoroutine(ResumeJaneIntrodution(waitTime));
@@ -37,6 +38,7 @@ public class PlayerTriggerJaneMove : MonoBehaviour
         yield return new WaitForSeconds(t);
         stateChange.SetTrue();
         _splineJane.Resume();
+        _splinePlayer.Resume();
        
     }
 

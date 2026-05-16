@@ -22,7 +22,7 @@ public class RotationAdjust : MonoBehaviour
 
     public void ChangeOrientation()
     {
-        transform.Rotate(0f, -90f, 0f, Space.Self);
+        transform.Rotate(0f, -70f, 0f, Space.Self);
 
         _spline = GetComponent<splineMove>();
         _spline.enabled = false;
@@ -30,7 +30,7 @@ public class RotationAdjust : MonoBehaviour
 
     public void ChangeOrientationJessica()
     {
-        transform.Rotate(0f, 55f, 0f, Space.Self);
+        transform.Rotate(0f, 215f, 0f, Space.Self);
 
         _spline = GetComponent<splineMove>();
         _spline.enabled = false;

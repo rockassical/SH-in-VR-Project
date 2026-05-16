@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
+using SWS;
 
 public class EventTrigger : MonoBehaviour
 {
@@ -18,11 +21,14 @@ public class EventTrigger : MonoBehaviour
     public GameObject locomotion; //Reece: In the inspector I assigned the Move child instead to allow for rotation while in chair.
                                   //>>>>>>> Stashed changes
     public GameObject startCutsceneUI;
+    public GameObject sitHereUI;
     public MeshRenderer rend;
     public Animator npcOneAnimator, npcTwoAnimator;
     public AudioSource cutsceneAudio;
     public Animator jess;
     public Animator william;
+
+    public PlayableDirector jwDirector;
 
    // public Transform playerTargetPosition, npcTargetPosition;
     //private bool fade;
@@ -33,17 +39,20 @@ public class EventTrigger : MonoBehaviour
         if (startCutsceneUI.activeSelf == false)
         {
             startCutsceneUI.SetActive(true);
+            sitHereUI.SetActive(false);
         }
     }
 
     //This will be called whenever the StartScenario UI button is pressed.
-    public void StartCutsceneCoroutine()
+    public void StartCutscene()
     {
-        StartCoroutine(StartCutscene());
+        jwDirector.Resume();
+        
+        //StartCoroutine(StartCutscene());
     }
     //cutscene starts
     //new changes in progress to test 06/26/25
-
+    /*
     IEnumerator StartCutscene()
     {
         // Fade to black
@@ -68,7 +77,7 @@ public class EventTrigger : MonoBehaviour
         yield return StartCoroutine(FadeScreen(1f, 0f, 1f));
 
        
-    }
+    }  */
 
     IEnumerator FadeScreen(float from, float to, float duration)
     {

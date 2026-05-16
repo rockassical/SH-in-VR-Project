@@ -14,8 +14,9 @@ public class PlayerSpeedChange : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _splinePlayer = other.gameObject.GetComponentInParent<splineMove>();
 
+
+            _splinePlayer.ChangeSpeed(1.5f);
             playerSplineControll.minSpeed = 1f;
 
             this.gameObject.GetComponent<BoxCollider>().enabled = false;

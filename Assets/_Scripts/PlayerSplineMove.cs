@@ -93,11 +93,21 @@ public class PlayerSplineMove : MonoBehaviour
         //spline.ChangeSpeed(moveSpeed);
     }
 
-    void Update()
+    public void fixedPlay() 
+    {
+        spline.Resume();
+    }
+	public void FixedPause() 
+    {
+        spline.Pause();
+    }
+    
+	
+	void Update()
     {
 
         //RotationAdjustment();
-        AdjustSpeed2();
+        //AdjustSpeed2();
 
         if (isRotationAligned == true)
         {

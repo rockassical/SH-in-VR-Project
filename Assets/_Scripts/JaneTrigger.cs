@@ -16,10 +16,11 @@ public class JaneTrigger : MonoBehaviour
     public bool hasEverPlayed = false;
 
     [SerializeField] AnimationStateChange stateChange;
+    private splineMove playerSpline;
 
     private void Awake()
     {
-        
+        playerSpline = GameObject.Find("Player").GetComponent<splineMove>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +38,7 @@ public class JaneTrigger : MonoBehaviour
             if (_spline != null)
             {
                 _spline.Pause();
-
+                //playerSpline.Pause();
                 GetComponent<BoxCollider>().isTrigger = false;
                 
             }
