@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 4c7ade357293c4d4994cfbdf1cc39c63, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.3067652, y: 0, z: 0.33835098}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0.141, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 697064dcb0b36cc49afc26a327842c57, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -772,58 +772,7 @@ MonoBehaviour:
   m_Curves: {fileID: 0}
   m_Parent: {fileID: 1181033602398447376}
   m_Children: []
-  m_Clips:
-  - m_Version: 1
-    m_Start: 12.85
-    m_ClipIn: 0
-    m_Asset: {fileID: 7551333795013915734}
-    m_Duration: 1.2833333333333314
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -5276169483253195434}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: Infinity
-    m_PreExtrapolationTime: 12.85
-    m_DisplayName: JessicalFinal2_Imported_JessicaMotion1
+  m_Clips: []
   m_Markers:
     m_Objects: []
   m_InfiniteClipPreExtrapolation: 0
@@ -968,7 +917,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e45b8c79586e84c46a0ffc5a46528c2a, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -990,7 +939,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5120804, y: 0, z: 0.32823986}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0.04, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -1029,7 +978,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 8dc48f1f5e20aa8408cc705ef9c18f27, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -2810,7 +2759,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: a03ac59635909dc4f8960bece5b4cc0b, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -2910,7 +2859,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -3115,7 +3064,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -3177,7 +3126,7 @@ MonoBehaviour:
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 1.2833333333333314
+    m_PreExtrapolationTime: 0
     m_DisplayName: JessicaFinal_Imported_JessicaMotion1(0)
   - m_Version: 1
     m_Start: 23.483333333333334
@@ -3783,25 +3732,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -3863,7 +3794,7 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 1.2833333333333314
+    m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: JessicalFinal2_Imported_JessicaMotion1
   - m_Version: 1
@@ -4183,6 +4114,57 @@ MonoBehaviour:
     m_MixOutCurve:
       serializedVersion: 2
       m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: JessicalFinal2_Imported_JessicaMotion1
+  - m_Version: 1
+    m_Start: 12.85
+    m_ClipIn: 0
+    m_Asset: {fileID: 7551333795013915734}
+    m_Duration: 1.2833333333333314
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 1181033602398447376}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -4557,7 +4539,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -4579,7 +4561,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e24aeb1ad82ddb943b4b2f2c6b32dbcd, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -4601,7 +4583,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: d3ed331f6c5e36d4cafee40ab33d0039, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -4667,7 +4649,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -4858,7 +4840,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -4924,7 +4906,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -5990,7 +5972,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 8895ed8eab9d72c44896392a9025b9ec, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -6012,7 +5994,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.3100637, y: 0, z: 0.15564856}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0.059, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -6302,7 +6284,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -6324,7 +6306,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
-  m_Position: {x: -1.4063756, y: 0, z: 0.20499961}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0.04, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -6368,7 +6350,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: f4334c7cdd525414984a0d162406b1e0, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
@@ -6513,7 +6495,7 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: a588c1e091ffb1443a715284724fb9a6, type: 2}
-  m_Position: {x: -1.5664078, y: 0, z: 0.24984215}
+  m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63

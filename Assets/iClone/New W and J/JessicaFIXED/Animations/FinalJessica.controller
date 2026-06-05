@@ -17,9 +17,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.9834635
   m_TransitionOffset: 0
-  m_ExitTime: 0
+  m_ExitTime: 0.000000005277863
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WillIdle
+  m_Name: JessicaIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -1019140434906852693, guid: 7d3c7383168ce2646b8179cf374032ff, type: 3}
+  m_Motion: {fileID: 7400000, guid: e3e7ab639c435614bb6955fc7295c0ee, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -137,7 +137,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WillWalk
+  m_Name: JessicaWalk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -151,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 5702080043840546895, guid: 7d3c7383168ce2646b8179cf374032ff, type: 3}
+  m_Motion: {fileID: 9137517357680692617, guid: 2cd42086652ec884383a87f2e5767615, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
